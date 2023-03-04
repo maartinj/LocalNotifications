@@ -8,22 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		BBADB771283A8F3700C6C57A /* AppEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBADB770283A8F3700C6C57A /* AppEntry.swift */; };
-		BBADB773283A8F3700C6C57A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBADB772283A8F3700C6C57A /* ContentView.swift */; };
+		BBADB773283A8F3700C6C57A /* NotificationsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBADB772283A8F3700C6C57A /* NotificationsListView.swift */; };
 		BBADB778283A8F3800C6C57A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BBADB777283A8F3800C6C57A /* Preview Assets.xcassets */; };
 		BBADB77F283A8F8F00C6C57A /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBADB77E283A8F8F00C6C57A /* Launch Screen.storyboard */; };
 		E447A28329B2B99700D44987 /* LocalNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E447A28229B2B99700D44987 /* LocalNotificationManager.swift */; };
 		E447A28529B2D0B200D44987 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E447A28429B2D0B200D44987 /* Assets.xcassets */; };
+		E447A28829B35FC800D44987 /* LocalNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = E447A28729B35FC800D44987 /* LocalNotification.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		BBADB76D283A8F3700C6C57A /* LocalNotifications.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LocalNotifications.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBADB770283A8F3700C6C57A /* AppEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEntry.swift; sourceTree = "<group>"; };
-		BBADB772283A8F3700C6C57A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		BBADB772283A8F3700C6C57A /* NotificationsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsListView.swift; sourceTree = "<group>"; };
 		BBADB777283A8F3800C6C57A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		BBADB77E283A8F8F00C6C57A /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		E447A28229B2B99700D44987 /* LocalNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationManager.swift; sourceTree = "<group>"; };
 		E447A28429B2D0B200D44987 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = LocalNotifications/Assets.xcassets; sourceTree = SOURCE_ROOT; };
 		E447A28629B35CB000D44987 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		E447A28729B35FC800D44987 /* LocalNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotification.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,7 +60,8 @@
 			children = (
 				E447A28629B35CB000D44987 /* Info.plist */,
 				BBADB770283A8F3700C6C57A /* AppEntry.swift */,
-				BBADB772283A8F3700C6C57A /* ContentView.swift */,
+				BBADB772283A8F3700C6C57A /* NotificationsListView.swift */,
+				E447A28729B35FC800D44987 /* LocalNotification.swift */,
 				E447A28229B2B99700D44987 /* LocalNotificationManager.swift */,
 				BBADB77E283A8F8F00C6C57A /* Launch Screen.storyboard */,
 				E447A28429B2D0B200D44987 /* Assets.xcassets */,
@@ -146,8 +149,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E447A28829B35FC800D44987 /* LocalNotification.swift in Sources */,
 				E447A28329B2B99700D44987 /* LocalNotificationManager.swift in Sources */,
-				BBADB773283A8F3700C6C57A /* ContentView.swift in Sources */,
+				BBADB773283A8F3700C6C57A /* NotificationsListView.swift in Sources */,
 				BBADB771283A8F3700C6C57A /* AppEntry.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
