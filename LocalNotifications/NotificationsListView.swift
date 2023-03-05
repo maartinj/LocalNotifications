@@ -35,6 +35,7 @@ struct NotificationsListView: View {
                         .buttonStyle(.bordered)
                         GroupBox {
                             DatePicker("", selection: $scheduleDate)
+                                .labelsHidden()
                             Button("Calendar Notification") {
                                 Task {
                                     let dateComponents = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: scheduleDate)
