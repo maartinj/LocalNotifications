@@ -48,11 +48,29 @@ class LocalNotificationManager: NSObject, ObservableObject, UNUserNotificationCe
         let content = UNMutableNotificationContent()
         content.title = localNotification.title
         content.body = localNotification.body
+        if let subtitle = localNotification.subtitle {
+            content.subtitle = subtitle
+        }
+        if let bundleImageName = localNotification.bundleImageName {
+            if let url = Bundle.main.url(forResource: bundleImageName, withExtension: "") {
+                if let attachment = try? UNNotificationAttachment(identifier: bundleImageName, url: url) {
+                    content.attachments = [attachment]
+                }
+            }
+        }
         content.sound = .default
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: localNotification.timeInterval,
-                                                        repeats: localNotification.repeats)
-        let request = UNNotificationRequest(identifier: localNotification.identifier, content: content, trigger: trigger)
-        try? await notificationCenter.add(request)
+        if localNotification.scheduleType == .time {
+            guard let timeInterval = localNotification.timeInterval else { return }
+            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: timeInterval,
+                                                            repeats: localNotification.repeats)
+            let request = UNNotificationRequest(identifier: localNotification.identifier, content: content, trigger: trigger)
+            try? await notificationCenter.add(request)
+        } else {
+            guard let dateComponents = localNotification.dateComponents else { return }
+            let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: localNotification.repeats)
+            let request = UNNotificationRequest(identifier: localNotification.identifier, content: content, trigger: trigger)
+            try? await notificationCenter.add(request)
+        }
         await getPendingRequests()
     }
     

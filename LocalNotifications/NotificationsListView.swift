@@ -14,6 +14,7 @@ import SwiftUI
 struct NotificationsListView: View {
     @EnvironmentObject var lnManager: LocalNotificationManager
     @Environment(\.scenePhase) var scenePhase
+    @State private var scheduleDate = Date()
     var body: some View {
         NavigationView {
             VStack {
@@ -21,19 +22,32 @@ struct NotificationsListView: View {
                     GroupBox("Schedule") {
                         Button("Interval Notification") {
                             Task {
-                                let localNotification = LocalNotification(identifier: UUID().uuidString,
+                                var localNotification = LocalNotification(identifier: UUID().uuidString,
                                                                           title: "Some Title",
                                                                           body: "Some body",
-                                                                          timeInterval: 60,
-                                                                          repeats: true)
+                                                                          timeInterval: 10,
+                                                                          repeats: false)
+                                localNotification.subtitle = "This is a subtitle"
+                                localNotification.bundleImageName = "Stewart.png"
                                 await lnManager.schedule(localNotification: localNotification)
                             }
                         }
                         .buttonStyle(.bordered)
-                        Button("Calendar Notification") {
-                            
+                        GroupBox {
+                            DatePicker("", selection: $scheduleDate)
+                            Button("Calendar Notification") {
+                                Task {
+                                    let dateComponents = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: scheduleDate)
+                                    let localNotification = LocalNotification(identifier: UUID().uuidString,
+                                                                              title: "Calendar Notification",
+                                                                              body: "Some Body",
+                                                                              dateComponents: dateComponents,
+                                                                              repeats: false)
+                                    await lnManager.schedule(localNotification: localNotification)
+                                }
+                            }
+                            .buttonStyle(.bordered)
                         }
-                        .buttonStyle(.bordered)
                     }
                     .frame(width: 300)
                     List {

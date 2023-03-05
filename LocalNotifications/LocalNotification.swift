@@ -5,12 +5,50 @@
 //  Created by Marcin Jędrzejak on 04/03/2023.
 //
 
+// Film cz. 3, 1:00
+
 import Foundation
 
 struct LocalNotification {
+    internal init(identifier: String,
+                  title: String,
+                  body: String,
+                  timeInterval: Double,
+                  repeats: Bool) {
+        self.identifier = identifier
+        self.scheduleType = .time
+        self.title = title
+        self.body = body
+        self.timeInterval = timeInterval
+        self.dateComponents = nil
+        self.repeats = repeats
+    }
+    
+    internal init(identifier: String,
+                  title: String,
+                  body: String,
+                  dateComponents: DateComponents,
+                  repeats: Bool) {
+        self.identifier = identifier
+        self.scheduleType = .calendar
+        self.title = title
+        self.body = body
+        self.timeInterval = nil
+        self.dateComponents = dateComponents
+        self.repeats = repeats
+    }
+    
+    enum ScheduleType {
+        case time, calendar
+    }
+    
     var identifier: String
+    var scheduleType: ScheduleType
     var title: String
     var body: String
-    var timeInterval: Double
+    var subtitle: String?
+    var bundleImageName: String?
+    var timeInterval: Double?
+    var dateComponents: DateComponents?
     var repeats: Bool
 }
