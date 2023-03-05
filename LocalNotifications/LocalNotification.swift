@@ -5,8 +5,6 @@
 //  Created by Marcin Jędrzejak on 04/03/2023.
 //
 
-// Film cz. 3, 1:00
-
 import Foundation
 
 struct LocalNotification {
@@ -48,7 +46,9 @@ struct LocalNotification {
     var body: String
     var subtitle: String?
     var bundleImageName: String?
+    var userInfo: [AnyHashable : Any]?
     var timeInterval: Double?
     var dateComponents: DateComponents?
     var repeats: Bool
+    var categoryIdentifier: String?
 }

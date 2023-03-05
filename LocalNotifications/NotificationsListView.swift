@@ -9,6 +9,8 @@
 
 // Playlista: https://www.youtube.com/watch?v=tNaSlfLeCB0&list=PLBn01m5Vbs4BkAf5RqyoD6c56h4MYJt3n&ab_channel=StewartLynch
 
+// Date Components Reference: https://www.codingexplorer.com/nsdatecomponents-class-reference/
+
 import SwiftUI
 
 struct NotificationsListView: View {
@@ -25,10 +27,12 @@ struct NotificationsListView: View {
                                 var localNotification = LocalNotification(identifier: UUID().uuidString,
                                                                           title: "Some Title",
                                                                           body: "Some body",
-                                                                          timeInterval: 10,
+                                                                          timeInterval: 5,
                                                                           repeats: false)
                                 localNotification.subtitle = "This is a subtitle"
                                 localNotification.bundleImageName = "Stewart.png"
+                                localNotification.userInfo = ["nextView" : NextView.renew.rawValue]
+                                localNotification.categoryIdentifier = "snooze"
                                 await lnManager.schedule(localNotification: localNotification)
                             }
                         }
@@ -49,10 +53,24 @@ struct NotificationsListView: View {
                             }
                             .buttonStyle(.bordered)
                         }
+                        Button("Promo Offer") {
+                            Task {
+                                let dateComponents = DateComponents(day: 1, hour: 10, minute: 0)
+                                var localNotification = LocalNotification(identifier: UUID().uuidString,
+                                                                          title: "Special Promotion",
+                                                                          body: "Take advantage of the monthly promotion",
+                                                                          dateComponents: dateComponents,
+                                                                          repeats: true)
+                                localNotification.bundleImageName = "Stewart.png"
+                                localNotification.userInfo = ["nextView" : NextView.promo.rawValue]
+                                await lnManager.schedule(localNotification: localNotification)
+                            }
+                        }
+                        .buttonStyle(.bordered)
                     }
                     .frame(width: 300)
                     List {
-                        ForEach(lnManager.pendingReguests, id: \.identifier) { request in
+                        ForEach(lnManager.pendingRequests, id: \.identifier) { request in
                             VStack(alignment: .leading) {
                                 Text(request.content.title)
                                 HStack {
@@ -76,6 +94,9 @@ struct NotificationsListView: View {
                     .buttonStyle(.borderedProminent)
                 }
             }
+            .sheet(item: $lnManager.nextView, content: { nextView in
+                nextView.view()
+            })
             .navigationTitle("Local Notifications")
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {

@@ -12,6 +12,7 @@
 		BBADB778283A8F3800C6C57A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BBADB777283A8F3800C6C57A /* Preview Assets.xcassets */; };
 		BBADB77F283A8F8F00C6C57A /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBADB77E283A8F8F00C6C57A /* Launch Screen.storyboard */; };
 		E4371D2C29B485CD000D06A6 /* Stewart.png in Resources */ = {isa = PBXBuildFile; fileRef = E4371D2B29B485CD000D06A6 /* Stewart.png */; };
+		E4371D2E29B48B73000D06A6 /* NextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4371D2D29B48B73000D06A6 /* NextView.swift */; };
 		E447A28329B2B99700D44987 /* LocalNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E447A28229B2B99700D44987 /* LocalNotificationManager.swift */; };
 		E447A28529B2D0B200D44987 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E447A28429B2D0B200D44987 /* Assets.xcassets */; };
 		E447A28829B35FC800D44987 /* LocalNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = E447A28729B35FC800D44987 /* LocalNotification.swift */; };
@@ -24,6 +25,7 @@
 		BBADB777283A8F3800C6C57A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		BBADB77E283A8F8F00C6C57A /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		E4371D2B29B485CD000D06A6 /* Stewart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Stewart.png; sourceTree = "<group>"; };
+		E4371D2D29B48B73000D06A6 /* NextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextView.swift; sourceTree = "<group>"; };
 		E447A28229B2B99700D44987 /* LocalNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationManager.swift; sourceTree = "<group>"; };
 		E447A28429B2D0B200D44987 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = LocalNotifications/Assets.xcassets; sourceTree = SOURCE_ROOT; };
 		E447A28629B35CB000D44987 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 				E447A28629B35CB000D44987 /* Info.plist */,
 				BBADB770283A8F3700C6C57A /* AppEntry.swift */,
 				BBADB772283A8F3700C6C57A /* NotificationsListView.swift */,
+				E4371D2D29B48B73000D06A6 /* NextView.swift */,
 				E447A28729B35FC800D44987 /* LocalNotification.swift */,
 				E4371D2B29B485CD000D06A6 /* Stewart.png */,
 				E447A28229B2B99700D44987 /* LocalNotificationManager.swift */,
@@ -154,6 +157,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E447A28829B35FC800D44987 /* LocalNotification.swift in Sources */,
+				E4371D2E29B48B73000D06A6 /* NextView.swift in Sources */,
 				E447A28329B2B99700D44987 /* LocalNotificationManager.swift in Sources */,
 				BBADB773283A8F3700C6C57A /* NotificationsListView.swift in Sources */,
 				BBADB771283A8F3700C6C57A /* AppEntry.swift in Sources */,
